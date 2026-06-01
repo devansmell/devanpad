@@ -33,18 +33,42 @@ PCB
 I used Cherry MX1's for the keyswitch footprints. My routing is god awful but if it aint broke dont fix it !!!!
 
 ## Firmware Overview
-This hackpad uses [QMK](https://qmk.fm/) firmware for everything. 
 
-- The 4 keys currently act as macros.
-- The OLED will be used to show date and time alongside customisable text :)
+Originally I planned to use QMK firmware, but I switched to CircuitPython + KMK because it made OLED control and development significantly easier.
 
-#### To get the python script running for d&t:
-```
+The firmware:
+- Reads key inputs via KMK
+- Drives OLED display in real time
+- Receives time/date from a Python script over USB serial
+- Cycles display modes using a keypress
+
+---
+
+## Host Software (PC Time Sync)
+
+The keyboard receives live system time and date from a Python script running on the computer.
+
+### Setup
+
+```bash
 pip install -r host/requirements.txt
 python host/main.py
 ```
 
-I might add more in the future! That's it for now
+This sends:
+- Current time every second
+- Current date updates
+- Optional mode switching commands
+
+## OLED Modes
+### Mode 0 — Time
+Displays current time from the PC.
+
+### Mode 1 — Date
+Displays current date from the PC.
+
+### Mode 2 — Hello Screen
+A simple greeting screen.
 
 ## BOM:
 Here should be everything you need to make this hackpad
@@ -55,8 +79,14 @@ Here should be everything you need to make this hackpad
 - 2X M2x12mm SHCS Bolts
 - 1x 0.91" 128x32 OLED Display
 - 1x XIAO RP2040
-- 1x Base (3D Printed or lasercut! !!)
+- 1x Base (3D Printed)
 
+### Build Notes
+Designed as a simple open PCB macropad
+Firmware is fully CircuitPython-based (no compilation required)
+OLED is driven over I2C
+PC <----> device communication uses USB serial
 
-## Extra stuff
-Built mine over 6 hours without realising it didn't count toward my Stardance hours LOL!!
+## Extra Stuff
+Built this over a whole day and somehow didn’t realize it didn’t count toward my hackatime hours #killme 
+_Theoretically_ this will work
