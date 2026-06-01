@@ -1,31 +1,14 @@
-import hid
+import serial
 import time
 from datetime import datetime
 
-VID = 0xFEED
-PID = 0x0001
-
-device = hid.device()
-device.open(VID, PID)
-
-print("Hackpad connected")
+ser = serial.Serial("COM3", 115200)
 
 while True:
 
     now = datetime.now()
 
-    time_str = now.strftime("%H:%M:%S")
-    date_str = now.strftime("%d %b %Y")
-
-    time_packet = bytearray(32)
-    time_packet[0] = ord('T')
-    time_packet[1:1+len(time_str)] = time_str.encode()
-
-    date_packet = bytearray(32)
-    date_packet[0] = ord('D')
-    date_packet[1:1+len(date_str)] = date_str.encode()
-
-    device.write(time_packet)
-    device.write(date_packet)
+    ser.write(f"T:{now.strftime('%H:%M:%S')}\n".encode())
+    ser.write(f"D:{now.strftime('%d %b %Y')}\n".encode())
 
     time.sleep(1)
