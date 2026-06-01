@@ -41,7 +41,7 @@ This hackpad uses [QMK](https://qmk.fm/) firmware for everything.
 #### To get the python script running for d&t:
 ```
 pip install -r host/requirements.txt
-python host/send_time.py
+python host/main.py
 ```
 
 I might add more in the future! That's it for now
