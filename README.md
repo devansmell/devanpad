@@ -80,6 +80,7 @@ Here should be everything you need to make this hackpad
 - 1x 0.91" 128x32 OLED Display
 - 1x XIAO RP2040
 - 1x Base (3D Printed)
+- 1x Soldering Iron (I don't own one)
 
 ### Build Notes
 Designed as a simple open PCB macropad
