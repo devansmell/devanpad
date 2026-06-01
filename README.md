@@ -27,7 +27,8 @@ Schematic
 
 PCB
 
-<img width="300" alt="PCB RENDER" src="https://github.com/user-attachments/assets/92ec38dd-0426-4c15-a85f-c71d2cbcacd0" />
+<img width="300" alt="PCB" src="https://github.com/user-attachments/assets/279bc2bf-8424-43aa-a6a2-bc27659247f4" />
+
 
 
 I used Cherry MX1's for the keyswitch footprints. My routing is god awful but if it aint broke dont fix it !!!!
