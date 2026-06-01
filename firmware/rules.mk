@@ -1,0 +1,6 @@
+OLED_ENABLE = yes
+OLED_DRIVER = ssd1306
+
+RAW_ENABLE = yes
+
+LTO_ENABLE = yes
